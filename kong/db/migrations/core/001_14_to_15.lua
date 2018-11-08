@@ -94,6 +94,9 @@ return {
         -- Do nothing, accept existing state
       END;
       $$;
+      -- 0.14 did not have the index, so create it if it isn't there
+      CREATE INDEX IF NOT EXISTS "snis_certificate_id_idx" on snis(certificate_id);
+
 
       DO $$
       BEGIN
